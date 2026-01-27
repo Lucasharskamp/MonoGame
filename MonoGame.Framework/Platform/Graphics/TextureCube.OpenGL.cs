@@ -1,4 +1,4 @@
-// MonoGame - Copyright (C) MonoGame Foundation, Inc
+﻿// MonoGame - Copyright (C) MonoGame Foundation, Inc
 // This file is subject to the terms and conditions defined in
 // file 'LICENSE.txt', which is part of this source code package.
 
@@ -110,7 +110,7 @@ namespace Microsoft.Xna.Framework.Graphics
 
 #if OPENGL && DESKTOPGL
             var target = GetGLCubeFace(cubeMapFace);
-            var tSizeInByte = ReflectionHelpers.SizeOf<T>.Get();
+            var tSizeInByte = ReflectionHelpers.FastSizeOf<T>();
             GL.BindTexture(TextureTarget.TextureCubeMap, this.glTexture);
 
             if (glFormat == GLPixelFormat.CompressedTextureFormats)
@@ -158,7 +158,7 @@ namespace Microsoft.Xna.Framework.Graphics
         {
             Threading.BlockOnUIThread(() =>
             {
-                var elementSizeInByte = ReflectionHelpers.SizeOf<T>.Get();
+                var elementSizeInByte = ReflectionHelpers.FastSizeOf<T>();
                 var dataHandle = GCHandle.Alloc(data, GCHandleType.Pinned);
                 // Use try..finally to make sure dataHandle is freed in case of an error
                 try

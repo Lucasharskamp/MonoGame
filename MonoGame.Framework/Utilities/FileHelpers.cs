@@ -3,6 +3,7 @@
 // file 'LICENSE.txt', which is part of this source code package.
 
 using System;
+using System.Globalization;
 using System.IO;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -54,7 +55,7 @@ namespace MonoGame.Framework.Utilities
             // relative addresses resolved... get the local path.
             var localPath = dst.LocalPath;
 
-            if (!hasForwardSlash && localPath.StartsWith("/"))
+            if (!hasForwardSlash && localPath[0] == '/')
                 localPath = localPath.Substring(1);
 
             // Convert the directory separator characters to the 
@@ -77,8 +78,8 @@ namespace MonoGame.Framework.Utilities
 
                     foreach (var num in bytes)
                     {
-                        safeline.Append("%");
-                        safeline.Append(num.ToString("X"));
+                        safeline.Append('%');
+                        safeline.Append(num.ToString("X", CultureInfo.InvariantCulture));
                     }
                 }
             }

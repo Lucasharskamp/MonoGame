@@ -8,18 +8,17 @@ namespace MonoGame.Framework.Utilities
     internal static partial class ReflectionHelpers
     {
         // This helper caches the Marshal.SizeOf result
-        // as it generates an allocation on each call.
-        [Obsolete("This should be made private and use FastSizeOf<T>() below instead!")]
-        internal static class SizeOf<T>
+        // as it generates an allocation on each call. 
+        private static class SizeOf<T>
         {
-            static int _sizeOf;
+            private static readonly int _sizeOf;
 
             static SizeOf()
             {
                 _sizeOf = Marshal.SizeOf<T>();
             }
 
-            static public int Get()
+            public static int Get()
             {
                 return _sizeOf;
             }

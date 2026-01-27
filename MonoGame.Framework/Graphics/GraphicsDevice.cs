@@ -1,4 +1,4 @@
-// MonoGame - Copyright (C) MonoGame Foundation, Inc
+﻿// MonoGame - Copyright (C) MonoGame Foundation, Inc
 // This file is subject to the terms and conditions defined in
 // file 'LICENSE.txt', which is part of this source code package.
 
@@ -48,8 +48,7 @@ namespace Microsoft.Xna.Framework.Graphics
         private static Color _discardColor = new Color(0, 0, 0, 255);
 #endif
 
-        private Color _blendFactor = Color.White;
-        private bool _blendFactorDirty;
+        private Color _blendFactor = Color.White; 
 
         private BlendState _blendState;
         private BlendState _actualBlendState;
@@ -177,12 +176,14 @@ namespace Microsoft.Xna.Framework.Graphics
         /// <summary>
         /// Occurs when a resource is created.
         /// </summary>
-		public event EventHandler<ResourceCreatedEventArgs> ResourceCreated;
+        [Obsolete("This event is not in use.")]
+        public event EventHandler<ResourceCreatedEventArgs> ResourceCreated;
 
         /// <summary>
         /// Occurs when a resource is destroyed.
         /// </summary>
-		public event EventHandler<ResourceDestroyedEventArgs> ResourceDestroyed;
+        [Obsolete("This event is not in use.")]
+        public event EventHandler<ResourceDestroyedEventArgs> ResourceDestroyed;
 
         /// <summary>
         /// Occurs when <see cref="Dispose()"/> is called
@@ -498,8 +499,7 @@ namespace Microsoft.Xna.Framework.Graphics
             {
                 if (_blendFactor == value)
                     return;
-                _blendFactor = value;
-                _blendFactorDirty = true;
+                _blendFactor = value; 
             }
         }
 

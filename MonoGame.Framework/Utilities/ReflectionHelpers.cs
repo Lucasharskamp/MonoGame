@@ -177,7 +177,9 @@ namespace MonoGame.Framework.Utilities
             return false;
         }
 
-        // Returns the cached size of the unmanaged type in bytes.
+        /// <summary>
+        /// Returns the cached size of the unmanaged type in bytes.
+        /// </summary>
         public static int FastSizeOf<T>()
         {
             return SizeOf<T>.Get();
